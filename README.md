@@ -1,5 +1,5 @@
 	This director structure as following:
-	elementary/........................The root director
+	elementary/................The root director
 	dot/.......................All *.hpp files
 	jpg/.......................All *.jpg files
 	cpp/.......................All *.cpp files
