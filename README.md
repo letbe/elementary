@@ -2,6 +2,6 @@
 
     dot/..........................All .dot files,*.dot build to *.ps,then save to ps/
 
-    ps/...........................All .ps files
+    jpg/...........................All .jpg files
 
     cpp/..........................All .cpp and .hpp files
