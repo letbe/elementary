@@ -1,0 +1,16 @@
+digraph merge {
+	edge [color = indigo];
+	node [style = filled,fillcolor = aliceblue];
+	start -> input;
+	input [shape = parallelogram,label = "iterators left,min and right of array A"];
+	subgraph step1 {
+		node [shape = box];
+		input -> step11 -> step12 -> step13;
+		step11 [label = "auto l = left;"];
+		step12 [label = "auto t = mid;"];
+		step13 [label = "auto r = right;"];
+		fontcolor = "coral";
+		label = "step#1";
+	}
+	
+}
