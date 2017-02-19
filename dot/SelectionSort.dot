@@ -1,0 +1,41 @@
+digraph SelectionSort {
+	node [shape = box,style = filled,fillcolor = aliceblue];
+	edge [color = indigo];
+	start -> input -> loop_step1;
+	start [shape = ellipse,fillcolor = goldenrod];
+	input [shape = parallelogram,label = "iterator __begin,iterator __end"];
+	end [shape = ellipse,fillcolor = goldenrod]; 
+	subgraph loop {
+		loop_step1 -> loop_step2;
+		loop_step2 -> loop_step3 [fontcolor = chartreuse,label = "true"];
+		loop_step2 -> end [fontcolor = coral,label = "false"];
+		loop_step3 -> loop2_step1;
+		loop_step4 -> loop_step2;
+		loop_step1 [label = "auto i = __begin"];
+		loop_step2 [shape = diamond,label = "i < __end"];
+		loop_step3 [label = "auto min = i"];
+		loop_step4 [label = "++i"];
+	}
+		
+	subgraph loop2 {
+		loop2_step1 -> loop2_step2;
+		loop2_step2 -> loop2_step3 [fontcolor = chartreuse,label = "true"];
+		loop2_step2 -> swap_step1 [fontcolor = coral,label = "false"];
+		loop2_step3 -> loop2_step4 [fontcolor = chartreuse,label = "true"];
+		loop2_step3 -> loop2_step5 [fontcolor = coral,label = "false"];
+		loop2_step4 -> loop2_step5;
+		loop2_step5 -> loop2_step2;
+		loop2_step1 [label = "auto j = i + 1"];
+		loop2_step2 [shape = diamond,label = "j < __end"];
+		loop2_step3 [shape = diamond,label = "*j < *min"];
+		loop2_step4 [label = "min = j"];
+		loop2_step5 [label = "++j"];
+	}
+
+	subgraph swap {
+		swap_step1 -> swap_step2 -> swap_step3 -> loop_step4;
+		swap_step1 [label = "auto r = *i"];
+		swap_step2 [label = "*i = *min"];
+		swap_step3 [label = "*min = r"];
+	}
+}
