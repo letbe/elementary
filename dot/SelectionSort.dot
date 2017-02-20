@@ -1,5 +1,5 @@
 digraph SelectionSort {
-	node [shape = box,style = filled,fillcolor = aliceblue];
+	node [shape = box,style = filled,fillcolor = aliceblue,color = aliceblue];
 	edge [color = indigo];
 	start -> input -> loop_step1;
 	start [shape = ellipse,fillcolor = goldenrod];
