@@ -1,0 +1,39 @@
+digraph BubbleSort {
+	node [shape = box,style = filled,fillcolor = aliceblue,color = aliceblue];
+	edge [color = indigo];
+	start -> input -> a1;
+	end;
+	start [shape = ellipse,style = filled,fillcolor = goldenrod,color = goldenrod];
+	end [shape = ellipse,style = filled,fillcolor = goldenrod,color = goldenrod];
+	input [shape = parallelogram,label = "iterator __begin,iterator __end"];
+	
+	subgraph loop1 {
+		a1 -> a2;
+		a2 -> b1 [fontcolor = chartreuse,label = "true"];
+		a2 -> end [fontcolor = coral,label = "false"];
+		a3 -> a2;
+		a1 [label = "auto i = __begin"];
+		a2 [shape = diamond,label = "i < __end"];
+		a3 [label = "++i"];
+	}
+	
+	subgraph loop2 {
+		b1 -> b2;
+		b2 -> b3 [fontcolor = chartreuse,label = "true"];
+		b2 -> a3 [fontcolor = coral,label = "false"];
+		b3 -> c1 [fontcolor = chartreuse,label = "true"];
+		b3 -> b4 [fontcolor = coral,label = "false"];
+		b4 -> b2;
+		b1 [label = "auto j = __begin"];
+		b2 [shape = diamond,label = "j < __end - i"];
+		b3 [shape = diamond,label = "*(j+1) < *j"]
+		b4 [label = "++j"];
+	}
+	
+	subgraph swap {
+		c1 -> c2 -> c3 -> b4;
+		c1 [label = "auto r = *r"];
+		c2 [label = "*r = *(r+1)"];
+		c3 [label = "*(r+1) = r"];
+	}
+}
